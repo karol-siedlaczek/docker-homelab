@@ -1,0 +1,18 @@
+# Domain name                       Backend name
+
+ergobhp.com                         be_ergobhp
+babski-swiat.pl                     be_babski-swiat
+artformstudio.pl                    be_artformstudio
+juliakowalska.com                   be_juliakowalska
+siedlaczek.org.pl                   be_siedlaczek
+k8s.siedlaczek.org.pl               be_k8s
+service-desk.siedlaczek.org.pl      be_service-desk
+grafana.siedlaczek.org.pl           be_grafana
+prometheus.siedlaczek.org.pl        be_prometheus
+vpn.siedlaczek.org.pl               be_vpn
+nagios.siedlaczek.org.pl            be_nagios
+zabbix.siedlaczek.org.pl            be_zabbix
+harbor.siedlaczek.org.pl            be_harbor
+webdav.siedlaczek.org.pl            be_webdav
+karol.siedlaczek.org.pl             be_karol
+mail.siedlaczek.org.pl              be_mail

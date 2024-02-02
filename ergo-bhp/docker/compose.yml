@@ -1,0 +1,20 @@
+services:
+  ergo-bhp:
+    build: 
+      context: app
+      args:
+        GIT_TOKEN: ${GIT_TOKEN}
+    container_name: django-ergo-bhp
+    env_file:
+      - ./.env
+    volumes:
+      - /var/storage/ergo-bhp_data/:/data
+    ports:
+      - 8000:8000
+    depends_on:
+      - postgres
+      - redis
+  
+  
+    
+  
