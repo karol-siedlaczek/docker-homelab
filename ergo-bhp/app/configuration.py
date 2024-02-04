@@ -1,15 +1,16 @@
 import os
 from django.core.management.utils import get_random_secret_key
 
-SITE_NAME = 'Ergo BHP'  # Verbose name
-STATIC_ROOT = '/data/staticfiles'
+SITE_NAME = 'Ergo BHP'  # Display name
+STATIC_ROOT = 'staticfiles'
 MEDIA_ROOT = '/data/media'
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', default=get_random_secret_key())
-ALLOWED_HOSTS = ['192.168.0.100', '127.0.0.1']
-DEBUG = os.getenv('DEBUG', default=False)
+ALLOWED_HOSTS = ['127.0.0.1', '*']
+CSRF_TRUSTED_ORIGINS = ["https://ergobhp.com"]
+DEBUG = False
 CACHE_TTL = 3600
 TIME_ZONE = 'Europe/Zagreb'
-LANGUAGE_CODE = 'pl-PL'  # Default if browser will not detect
+LANGUAGE_CODE = 'pl-PL'  # Default lang if browser will not detect
 DEFAULT_ORDERING = '-popularity'  # In category and subcategory views
 
 LOG = {
@@ -46,7 +47,7 @@ CONTACT_FORM = {
     'MAX_PRODUCTS_PER_SUBMIT': 40,
     'MAX_ATTACHMENT_SIZE': 1024 * 1024 * 20,
     'MAX_ATTACHMENTS_PER_SUBMIT': 5,
-    'RECIPIENT': 'karol@siedlaczek.org.pl'
+    'RECIPIENT': 'ergobhp.info@gmail.com'
 }
 
 ALLOWED_FILE_EXTENSIONS = [

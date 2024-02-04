@@ -1,0 +1,54 @@
+version: "3"
+
+services:
+  ergobhp:
+    build: 
+      context: app
+      args:
+        GIT_TOKEN: ${GIT_TOKEN}
+        GIT_USER: karol-siedlaczek
+        GIT_REPO: ergo-bhp
+        BRANCH: main
+    container_name: django-ergobhp
+    env_file:
+      - ./.env
+    volumes:
+      - /var/storage/ergo-bhp_data/:/data
+    ports:
+      - 8000:8000
+    depends_on:
+      - "postgresql"
+      - "redis"
+      - "haproxy"
+
+  postgresql:
+    image: postgres:16-alpine
+    container_name: postgresql
+    env_file:
+      - ./.env
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      PGDATA: /var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    volumes: 
+      - /var/storage/postgres_data/:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7.2.4-alpine
+    container_name: redis
+    ports:
+      - 6379:6379
+    volumes:
+      - /var/storage/redis_data/:/data
+
+  haproxy:
+    labels:
+      type: proxy
+    build: haproxy
+    container_name: haproxy
+    ports:
+      - 80:80
+      - 443:443
+    volumes: 
+      - /var/storage/haproxy_data/certs:/usr/local/etc/haproxy/certs:ro
