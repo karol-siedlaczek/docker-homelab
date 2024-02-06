@@ -8,7 +8,6 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', default=get_random_secret_key())
 ALLOWED_HOSTS = ['127.0.0.1', '*']
 CSRF_TRUSTED_ORIGINS = ["https://ergobhp.com"]
 DEBUG = False
-CACHE_TTL = 3600
 TIME_ZONE = 'Europe/Zagreb'
 LANGUAGE_CODE = 'pl-PL'  # Default lang if browser will not detect
 DEFAULT_ORDERING = '-popularity'  # In category and subcategory views
@@ -17,6 +16,11 @@ LOG = {
     'MAX_SIZE': 1024 * 1024 * 5,  # 5MB
     'MAX_COUNT': 5,  # Per logger
     'LEVEL': os.getenv('LOG_LEVEL', default='DEBUG')  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+}
+
+CACHE = {
+    'ENABLED': False,
+    'TTL': 3600
 }
 
 DATABASE = {  # PostgreSQL
