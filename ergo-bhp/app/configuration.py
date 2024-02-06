@@ -19,7 +19,7 @@ LOG = {
 }
 
 CACHE = {
-    'ENABLED': False,
+    'ENABLED': True,
     'TTL': 3600
 }
 
