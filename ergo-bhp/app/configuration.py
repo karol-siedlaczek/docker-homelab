@@ -6,7 +6,7 @@ STATIC_ROOT = 'staticfiles'
 MEDIA_ROOT = '/data/media'
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', default=get_random_secret_key())
 ALLOWED_HOSTS = ['127.0.0.1', '*']
-CSRF_TRUSTED_ORIGINS = ["https://ergobhp.com"]
+CSRF_TRUSTED_ORIGINS = ["https://ergobhp.com", "https://www.ergobhp.com"]
 DEBUG = False
 TIME_ZONE = 'Europe/Zagreb'
 LANGUAGE_CODE = 'pl-PL'  # Default lang if browser will not detect
