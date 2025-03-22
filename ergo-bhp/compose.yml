@@ -15,7 +15,8 @@ services:
     volumes:
       - /var/storage/ergo-bhp_data/:/data
     ports:
-      - 8000:8000
+      - 127.0.0.1:8000:8000
+      - 10.15.20.6:8000:8000
     depends_on:
       - "postgresql"
       - "redis"
@@ -30,7 +31,8 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       PGDATA: /var/lib/postgresql/data
     ports:
-      - 5432:5432
+      - 127.0.0.1:5432:5432
+      - 10.15.20.6:5432:5432
     volumes: 
       - /var/storage/postgres_data/:/var/lib/postgresql/data
 
@@ -38,7 +40,8 @@ services:
     image: redis:7.2.4-alpine
     container_name: redis
     ports:
-      - 6379:6379
+      - 127.0.0.1:6379:6379
+      - 10.15.20.6:6379:6379
     volumes:
       - /var/storage/redis_data/:/data
 
@@ -48,7 +51,7 @@ services:
     build: haproxy
     container_name: haproxy
     ports:
-      - 80:80
+      - 127.0.0.1:80:80
       - 443:443
     volumes: 
       - /var/storage/haproxy_data/certs:/usr/local/etc/haproxy/certs:ro
